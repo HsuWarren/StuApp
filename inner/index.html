@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/index.css">
+	<title>学生信息管理系统</title>
+</head>
+<body>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+	<div id="container">
+		<div id="top">
+			<div class="t_left" onclick="location.href='index.html'">
+				<div id="logo"></div>
+				<div id="sname"><p>学生信息管理系统</p></div>
+			</div>
+			<div class="t_right">
+					<div class="admin">
+						<ul>
+							<li class="drop-down">
+								<a><img src="../images/adm.png" alt=""><p>东方不败</p></a>
+								<ul class="drop-down-content">
+									<li><a href="#info" class="operate">修改个人信息</a></li>
+									<li><a href="../login.html" class="operate">切换账户</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<div class="exit"><a href="../login.html"><img src="../images/close.png" alt=""><p>注销</p></a></div>
+				</ul>
+			</div>
+		</div>
+		<div id="main">
+			<div class="system" onclick="location.href='#01'">
+				<div id="img_part"><img src="../images/find.png" alt=""></div>
+				<div id="enter"><h1>成绩查询</h1><p id="grade">查询个学期、各学年成绩</p></div>
+			</div>
+			<div class="system" onclick="location.href='#02'">
+				<div id="img_part"><img src="../images/classes.png" alt=""></div>
+					<div id="enter"><h1>选课系统</h1><p id="grade">学员根据兴趣自由选择</p></div>
+				</div>
+		</div>
+		<div class="copy_rights">
+				<p>Copyright &copy; 2017. L&H all rights reserved.</p>
+    	</div>
+	</div>
+</body>
+</html>

@@ -24,6 +24,7 @@ img{max-width:100%;}
 /****-----start-body----****/
 body{
 	background: url(../images/login_bg_blur.jpg) no-repeat 0px 0px;
+	/*background-color:rgba(0, 0, 0, 0.5);*/
 	font-family: 'Open Sans', sans-serif;
 	background-size:cover;
 	-webkit-background-size:cover;
