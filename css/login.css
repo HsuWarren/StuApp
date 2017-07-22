@@ -37,6 +37,10 @@ body a,form li,input[type="submit"],input[type="text"],.sixth-login input[type="
 	-moz-transition: 0.1s all;
 	-o-transition: 0.1s all;
 }
+.container{
+	height: 100%;
+	width: 100%;
+}
 .top {
 	padding-top: 6em;
 	font-weight: 400;
