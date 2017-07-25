@@ -6,32 +6,131 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="../css/grade.css">
+    <script src="../js/pagination.js"></script>
 	<title>学生信息管理系统</title>
 </head>
 <body margin="0">
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js" charset="UTF-8"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <div class="table-responsive" id="container">
-		<table class="table table-hover">
-			<!-- On cells (`td` or `th`) -->
-			<tr class="active">
-			  <td class="info">课程编号</td>
-			  <td class="info">课程名称</td>
-			  <td class="info">考试时间</td>
-			  <td class="info">分数</td>
-			  <td class="info">状态</td>
-			</tr>
-			<tr>
-			  <td class="active">001324</td>
-			  <td class="active">数学</td>
-			  <td class="active">2017-07-22</td>
-			  <td class="active">98</td>
-			  <td class="active">通过</td>
-			</tr>
-		</table>
+    <script src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap-datetimepicker.js" charset="UTF-8">
+    </script>
+    <script src="../js/bootstrap-datetimepicker.zh-CN.js" type="text/javascript" /></script>
+    <div id="container">
+    	<div id="show">
+    		<img src="../images/findsm.png" alt="">
+    		<span>成绩查询</span>
+    	</div>
+	    <div id="query">
+			<form action="" class="form-inline">
+			  <div class="form-group">
+			    <label for="exampleInputName2">课程编号：</label>
+			    <input type="text" class="form-control" id="exampleInputName2" placeholder="">
+			  </div>
+			  <div class="form-group" style="margin:0 0 0 80px;">
+			    <label for="exampleInputEmail2">课程名称：</label>
+			    <input type="text" class="form-control" id="exampleInputEmail2" placeholder="">
+			  </div>
+			  <div class="form-group">
+                <label for="dtp_input2" >考试时间：</label>
+                <div class="input-group date form_date col-md-5" data-date="" data-date-format="yyyy MM dd" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                    <input class="form-control" size="36" type="text" value="" readonly>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+					<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                </div>
+				<input type="hidden" id="dtp_input2" value="" /><br/>
+            </div>
+			  <button type="submit" class="btn btn-info">查询</button>
+			</form>
+	    </div>
+	    <div class="table-responsive" >
+			<table class="table table-hover">
+				<tr class="info">
+				  <td >课程编号</td>
+				  <td >课程名称</td>
+				  <td >考试时间</td>
+				  <td >分数</td>
+				  <td >状态</td>
+				</tr>
+				<tr>
+				  <td >001324</td>
+				  <td >数学</td>
+				  <td >2017-07-22</td>
+				  <td >98</td>
+				  <td >已通过</td>
+				</tr>
+				<tr>
+				  <td >001325</td>
+				  <td >语文</td>
+				  <td >2017-07-25</td>
+				  <td >95</td>
+				  <td >已通过</td>
+				</tr>
+				<tr>
+				  <td >001326</td>
+				  <td >英语</td>
+				  <td >2017-07-25</td>
+				  <td >90</td>
+				  <td >已通过</td>
+				</tr>
+				<tr>
+				  <td >001327</td>
+				  <td >地理</td>
+				  <td >2017-07-25</td>
+				  <td >59</td>
+				  <td >未通过</td>
+				</tr>
+			</table>
+		</div>
+		<div id="pages" style="text-align: center;" pagination="pagination_new" pagenumber="1" totalpage="5">
+	    </div>
 	</div>
+	<script type="text/javascript">  
+    function paginationClick(pagination_id){  
+        var pagenumber = $('#'+pagination_id+'').attr('pagenumber');  
+        var totalpage = $('#'+pagination_id+'').attr('totalpage');  
+        // alert('zmy通用分页测试：当前id：'+pagination_id+' , pagenumber:'+pagenumber+' , totalpage:'+totalpage);  
+    }  
+    $(function(){     
+            $('#pages').attr('pagenumber','1');  
+            $('#pages').attr('totalpage','5'); 
+            $('#pages').attr('paginationMaxLength','3');  
+            paginationInit(); 
+    }); 
+    $('.form_datetime').datetimepicker({
+        language:  'zh-CN',
+        weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		forceParse: 0,
+        showMeridian: 1
+    });
+	$('.form_date').datetimepicker({
+        language:  'zh-CN',
+        weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		minView: 2,
+		forceParse: 0
+    });
+	$('.form_time').datetimepicker({
+        language:  'zh-CN',
+        weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 1,
+		minView: 0,
+		maxView: 1,
+		forceParse: 0
+    }); 
+</script> 
 	</body>
 </html>

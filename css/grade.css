@@ -26,6 +26,7 @@ body{
 	background: white no-repeat 0px 0px;
 	font-family: 'Open Sans', sans-serif;
 	background-size:cover;
+	text-align: center;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
 	-o-background-size:cover;
@@ -36,10 +37,39 @@ body a,form li,input[type="submit"],input[type="text"],.sixth-login input[type="
 	-moz-transition: 0.1s all;
 	-o-transition: 0.1s all;
 }
-html body #container{
-	width: 90%;
-	height: 100%;
-	text-align: center;
-	position: relative;
-	border: 1px solid black;
+#container{
+	margin: 0 auto;
+	width: 96%;
+}
+#show{
+	height: 50px;
+	margin-top: 38px;
+	margin-bottom: 10px;
+	background-color:rgba(0,0,0,0.05);
+	/*border: 1px solid orange;*/
+}
+#show img{
+	display: block;
+	float: left;
+	margin: 10px;
+}
+#show span{
+	display: block;
+	float: left;
+	line-height: 30px;
+	font-size: 18px;
+	margin: 10px 0;
+}
+#query{
+	height: 34px;
+	color: gray;
+	margin-bottom: 10px;
+	/*text-align: left;*/
+	/*border: 1px solid orange;*/
+}
+#pages{
+	height: 60px;
+	color: gray;
+	margin-bottom: 10px;
+	/*border: 1px solid orange;*/
 }
