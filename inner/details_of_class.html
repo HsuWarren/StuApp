@@ -41,7 +41,7 @@
 								<li class="drop-down">
 									<a><img src="../images/adm.png" alt=""><p>东方不败</p></a>
 									<ul class="drop-down-content">
-										<li><a id="openmodal" data-toggle="modal" data-target="#myModal" data-backdrop="static" class="operate">修改个人信息</a></li>
+										<li><a id="openmodal" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false" class="operate">修改个人信息</a></li>
 										<li><a href="../login.html" class="operate">切换账户</a></li>
 									</ul>
 								</li>
@@ -61,10 +61,10 @@
 					</div>
 		            <ul class="MenuLevel2">
 		            	<li class="level2">
-		                    <a id="query" href="javascript:load_grade();">成绩查询</a>
+		                    <a id="query" href="details_of_grade.html">成绩查询</a>
 						</li>
 		                <li class="level2">
-		                	<a id="classes" href="javascript:load_clazz();">选课系统</a>
+		                	<a id="classes" href="details_of_class.html">选课系统</a>
 						</li>
 		            </ul>
 		        </li>
@@ -156,9 +156,6 @@
 			$(function(){
 				load_clazz();
 			});
-			function load_grade(){
-           		document.getElementById("rside").innerHTML = '<object type="text/html" data="grade.html" width="100%" height="100%"></object>';
-      		}
       		function load_clazz(){
            		document.getElementById("rside").innerHTML = '<object type="text/html" data="class.html" width="100%" height="100%"></object>';
       		}
