@@ -6,20 +6,162 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/details.css">
+    <script type="text/javascript" src="../js/details.js"></script>
 	<title>学生信息管理系统</title>
+	<script type="text/javascript">
+		// 显示或隐藏二级菜单 
+		function menuClick( menuDiv ){
+			$(".MenuLevel2").not( $(menuDiv).next() ).hide();
+			$(menuDiv).next().toggle();
+		}
+		
+		$(function(){
+			// 默认只显示第1个二级菜单
+			$(".MenuLevel2").hide();
+			$(".MenuLevel2:first").show();
+		});
+	//<!-- 内容总宽度为 3px边框 * 2 + 155px内容 = 161px; -->
+	</script>
 </head>
-	<frameset rows="151px,*" framespacing="0" border="0" frameborder="0">
-		<frame src="top.html" scrolling="no" noresize /> 
-		<frameset cols="178px,*">
-			<frame noresize src="left.html" scrolling="yes" /> 
-			<frame noresize name="right" src="class.html" scrolling="yes"/> 
-		</frameset>
-	</frameset>
-	<noframes>
-		<body>
-			你的浏览器不支持框架布局，推荐你使用<a href="http://www.firefox.com.cn/download/" style="text-decoration: none;">火狐浏览器</a>,
-			<a href="http://www.google.cn/intl/zh-CN/chrome/" style="text-decoration: none;">谷歌浏览器</a>
-		</body>
-	</noframes>
+<body>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../js/bootstrap.min.js"></script>
+    <div id="container">
+		<div id="top">
+			<div class="t_left" onclick="location.href='index.html'">
+				<div id="logo"></div>
+				<div id="sname"><p>学生信息管理系统</p></div>
+				</div>
+				<div class="t_right">
+						<div class="admin">
+							<ul>
+								<li class="drop-down">
+									<a><img src="../images/adm.png" alt=""><p>东方不败</p></a>
+									<ul class="drop-down-content">
+										<li><a id="openmodal" data-toggle="modal" data-target="#myModal" data-backdrop="static" class="operate">修改个人信息</a></li>
+										<li><a href="../login.html" class="operate">切换账户</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+						<div class="exit"><a href="../login.html"><img src="../images/close.png" alt=""><p>注销</p></a></div>
+					</ul>
+				</div>
+		</div>
+		<div id="main">
+			<div id="lside">
+				<ul id="Menu">
+			    <li class="level1">
+		            <div onClick="menuClick(this);" class="level1Style">
+						<img src="../images/menu.gif"/> 
+						系统菜单
+					</div>
+		            <ul class="MenuLevel2">
+		            	<li class="level2">
+		                    <a id="query" href="javascript:load_grade();">成绩查询</a>
+						</li>
+		                <li class="level2">
+		                	<a id="classes" href="javascript:load_clazz();">选课系统</a>
+						</li>
+		            </ul>
+		        </li>
+		    </ul>
+			</div>
+			<div id="rside"></div>
+		</div>
+	</div>
+	<!-- 模态框（Modal） -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog" style="width:692px;">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							&times;
+						</button>
+						<h4 class="modal-title" id="myModalLabel">
+							用户信息管理
+						</h4>
+					</div>
+					<div class="modal-body">
+						<div id="info_form">
+							<form class="form-inline">
+							  <div class="form-group" style="margin: 15px 15px 15px 0">
+							    <label for="username">用户名:</label>
+							    <input type="text" class="form-control" id="username" placeholder="Admin" readonly>
+							  </div>
+							  <div class="form-group" style="margin: 15px 15px 15px 0">
+							    <label for="stuid">学　号:</label>
+							    <input type="text" class="form-control" id="stuid" placeholder="12121876" readonly>
+							  </div>
+							  <div class="form-group" style="margin: 15px 15px 15px 0">
+							    <label for="gender">性　别：</label>
+							    <select class="form-control" >
+								  <option>男</option>
+								  <option>女</option>
+								</select>
+							  </div>
+							  <div class="form-group" style="margin: 15px 15px 15px 0">
+							    <label for="academy">学　院:</label>
+							    <input type="text" class="form-control" id="academy" placeholder="计算机学院" readonly>
+							  </div>
+							  <div class="form-group" style="margin: 15px 15px 15px 0">
+							    <label for="classes">所属班级:</label>
+							    <input type="text" class="form-control" id="classes" placeholder="软工五班" readonly>
+							  </div>
+							   <div class="form-group" style="margin: 15px 15px 15px 0">
+							    <label for="pwd">新密码:</label>
+							    <input type="password" class="form-control" id="pwd" placeholder="">
+							  </div>
+							  <div class="form-group" style="margin: 15px 15px 15px 0">
+							    <label for="pwd">确认密码:</label>
+							    <input type="password" class="form-control" id="pwd" placeholder="">
+							  </div>
+							  <div class="form-group" style="margin: 15px 15px 15px 0">
+							    <label for="tel">手　机:</label>
+							    <input type="text" class="form-control" id="tel" placeholder="18818219889">
+							  </div>
+							  <div class="form-group" style="margin: 15px 15px 15px 0">
+							    <label for="contact">紧急联系人:</label>
+							    <input type="text" class="form-control" id="tel" placeholder="">
+							  </div>
+								<div class="form-group" style="margin: 15px 15px 15px 0">
+							    <label for="email">邮　箱:</label>
+							    <input type="email" class="form-control" style="width: 256px" id="email" placeholder="">
+							  </div>
+							  <div class="form-group" style="margin: 15px 15px 15px 0">
+							    <label for="qq">QQ:</label>
+							    <input type="text" class="form-control" style="width: 200px" id="qq" placeholder="">
+							  </div>
+							  <div class="form-group" style="margin: 15px 15px 15px 0">
+							    <label for="address">地　址:</label>
+							    <input type="text" class="form-control" style="width: 480px" id="address" placeholder="">
+							  </div>
+							</form>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+						</button>
+						<button type="button" class="btn btn-primary">
+							保存
+						</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal -->
+		</div>
+		<script type="text/javascript">
+			$(function(){
+				load_clazz();
+			});
+			function load_grade(){
+           		document.getElementById("rside").innerHTML = '<object type="text/html" data="grade.html" width="100%" height="100%"></object>';
+      		}
+      		function load_clazz(){
+           		document.getElementById("rside").innerHTML = '<object type="text/html" data="class.html" width="100%" height="100%"></object>';
+      		}
+		</script>
+</body>
 </html>
